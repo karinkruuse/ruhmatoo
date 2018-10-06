@@ -11,14 +11,13 @@ public class Peaklass {
         int test = 0;
         do {
             System.out.println("Millist testi soovite teha?");
-            for (String elem: testid) {
+            for (String elem : testid) {
                 System.out.println(elem);
             }
             test = s.nextInt();
 
-        } while(test != 0);
-        
-        Syste.out.println("Olen gei");
+        } while (test != 0);
+
 
     }
 
