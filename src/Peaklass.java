@@ -17,8 +17,6 @@ public class Peaklass {
             test = s.nextInt();
 
         } while(test != 0);
-        
-        Syste.out.println("Olen gei");
 
     }
 
