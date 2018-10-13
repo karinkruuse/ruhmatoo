@@ -6,19 +6,7 @@ import java.util.Scanner;
 class Test {
 
     public static Scanner s = new Scanner(System.in);
-
-
-    public static boolean isInt(String strNum) { // võtsime selle internetist, tundus lihtne ja loogiline
-
-        boolean ret = true;
-        try {
-            Integer.parseInt(strNum);
-        }
-        catch (NumberFormatException e) {
-            ret = false;
-        }
-        return ret;
-    }
+    public static Utilities u = new Utilities();
 
 
     private int pikkus;
@@ -41,8 +29,7 @@ class Test {
         // lugesin https://docs.oracle.com/javase/tutorial/essential/concurrency/sleep.html
         // usun, et antud juhul on Thread.sleep turvaline kasutada
         // Stack overflows oli keegi öelnud et see ei ole
-        try { Thread.sleep(500); }
-        catch (InterruptedException e) { }
+        u.delay(500);
 
 
         for (int i = 1; i < küsimus.length; i++) {
@@ -53,7 +40,7 @@ class Test {
         String vastus = "";
         do {
             vastus = s.nextLine();
-        } while (!isInt(vastus));
+        } while (!u.isInt(vastus));
         int vastusInt = Integer.parseInt(vastus);
         vastused.add(küsimuseNr-1, vastusInt);
 
