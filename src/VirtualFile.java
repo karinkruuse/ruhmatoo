@@ -4,8 +4,7 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.Arrays;
 
-public class Fail {
-
+public class VirtualFile {
 
 
     public static List<String[]> testiNimed() throws Exception {
@@ -26,34 +25,28 @@ public class Fail {
     }
 
 
-    private Scanner s;
-    private File textFail;
     private int mitmesKüsimus;
+    private List<List<String>> küsimused;
 
 
-    public Fail(String textFail) throws Exception {
-        this.textFail = new File(textFail);
-        mitmesKüsimus = 0;
-        s = new Scanner(textFail);
-    }
-
-
-    public Fail(File textFail) throws Exception {
-        this.textFail = textFail;
-        mitmesKüsimus = 0;
-        s = new Scanner(textFail);
-    }
-
-
-    public List<String> küsimus(int küsimuseNr) {
+    public VirtualFile(String textFail) throws Exception {
+        File fail = new File(textFail);
+        Scanner s = new Scanner(fail);
         String rida = "";
-        for (int i = 0; i < küsimuseNr; i++) {
-            rida = s.next();
-        }
-        List<String> küsimusVastusevariantidega = Arrays.asList(rida.split(":"));
-        List<String> valmis = new ArrayList<>(küsimusVastusevariantidega);
+        int i = 0;
 
-        return valmis;
+        while (s.hasNextLine()) {
+            rida = s.next();
+            küsimused.set(i, Arrays.asList(rida.split(":")));
+            i++;
+        }
+
+        mitmesKüsimus = 0;
+    }
+
+
+    public List<String> getKüsimus(int küsimuseNr) {
+        return küsimused.get(küsimuseNr-1);
     }
 
 

@@ -6,10 +6,10 @@ class Test{
 
     private int pikkus;
     List<Integer> vastused = new ArrayList<>();
-    Fail testiFail;
+    VirtualFile testiFail;
 
     public Test(String failiNimi) throws Exception {
-        testiFail = new Fail(failiNimi);
+        testiFail = new VirtualFile(failiNimi);
         // pikkuse leidmine
 
     }

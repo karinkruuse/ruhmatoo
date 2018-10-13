@@ -10,7 +10,7 @@ public class Peaklass {
     public static void main(String args[]) throws Exception {
 
 
-        List<String[]> testid = Fail.testiNimed();  // [testi nimi, testi fail], [testi nimi2, testi fail2] ...
+        List<String[]> testid = VirtualFile.testiNimed();  // [testi nimi, testi fail], [testi nimi2, testi fail2] ...
 
         // Siin algab nn game-loop
         while (true) {
