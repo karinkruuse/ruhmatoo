@@ -1,40 +1,47 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Peaklass {
 
     public static Scanner s = new Scanner(System.in);
 
+    
     public static void main(String args[]) throws Exception {
 
 
-        ArrayList<String[]> testid = TxtKüsimusteks.testiNimed();  // [testi nimi, testi fail], [testi nimi2, testi fail2] ...
-
-        int test = 0;
+        List<String[]> testid = Fail.testiNimed();  // [testi nimi, testi fail], [testi nimi2, testi fail2] ...
 
         // Siin algab nn game-loop
-        do {
+        while (true) {
             System.out.println("Millist testi soovite teha?");
-            for (String[] elem: testid) {  // Prindib testid välja
+            for (String[] elem : testid) {  // Prindib testid välja
+                System.out.print("[" + (testid.indexOf(elem) + 1) + "] ");
                 System.out.println(elem[0]);
             }
 
-            test = s.nextInt();
-            testManager(test);
+            int test = s.nextInt();
+            if (test == 0) {
+                break;
+            }
+            String nimi = testid.get(test - 1)[0];
+            System.out.println(nimi);
 
-        } while(test != 0);
+        }
 
     }
 
-    public static void testManager(int testiNr) {
 
-        if (testiNr == 0) {
-            return;
-        }
+    public static void testManager(int testiNr, String testiNimi) {
 
-        // saab testi numbi, testi nimes peab olema see nr ehk ss avab testi "test" + testinr
-        String test = "test" + testiNr + ".txt";
-        System.out.println("Valisite testi " + test);
+        // tuleb selgeks teha kas on kaküsimustega vms
+        // vb see on juba varem selgeks tegtud, oleneb, kuidas me seda kategoriseerimist implementime
+        // print(Alustasid seda testi)
+
+        //
+
+        // for (int i = 0; i < test.pikkus
+
 
 
     }

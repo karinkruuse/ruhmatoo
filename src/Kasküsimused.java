@@ -1,6 +1,0 @@
-
-class Kasküsimused extends Test{
-
-
-
-}
