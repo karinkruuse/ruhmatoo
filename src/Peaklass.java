@@ -10,7 +10,7 @@ public class Peaklass {
     public static void main(String args[]) throws Exception {
 
 
-        List<String[]> testid = Fail.testiNimed();  // [testi nimi, testi fail], [testi nimi2, testi fail2] ...
+        List<String[]> testid = VirtualFile.testiNimed();  // [testi nimi, testi fail], [testi nimi2, testi fail2] ...
 
         // Siin algab nn game-loop
         while (true) {
@@ -25,22 +25,28 @@ public class Peaklass {
                 break;
             }
             String nimi = testid.get(test - 1)[0];
-            System.out.println(nimi);
+            testManager(test, nimi);
 
         }
 
     }
 
 
-    public static void testManager(int testiNr, String testiNimi) {
+    public static void testManager(int testiNr, String testiNimi) throws Exception {
 
-        // tuleb selgeks teha kas on kaküsimustega vms
-        // vb see on juba varem selgeks tegtud, oleneb, kuidas me seda kategoriseerimist implementime
-        // print(Alustasid seda testi)
+       System.out.println("Valisite tesit: " + testiNimi);
 
-        //
+       String failiNimi = "test" + testiNr + ".txt";
+       Test test = new Test(failiNimi);
 
-        // for (int i = 0; i < test.pikkus)
+       int pikkus = test.getPikkus();
+       for (int i = 0; i < pikkus; i++) {
+           test.küsi(i+1);
+       }
+
+       test.genereeriTulemus();
+       System.out.println("Test tehtud!");
+
 
 
 
