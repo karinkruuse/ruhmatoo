@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class Lisa {
     static Scanner sc = new Scanner(System.in);
+    static Utilities u = new Utilities();
 
     public static void lisaTest() throws Exception {
         System.out.println("Sisesta test nimi: ");
@@ -18,10 +19,10 @@ public class Lisa {
         output1.close();
 
         while(true) { // küsimuste lisamise loop
-            ArrayList<String> küsimuselist = new ArrayList<String>;
+            ArrayList<String> küsimuselist = new ArrayList<>();
             System.out.println("Sisesta küsimus/lõpetamiseks sisesta suvaline number: ");
             String küsimus = sc.next();
-            if (küsimus.length() == 1 && küsimus.charAt(0).isDigit()) {
+            if (küsimus.length() == 1 && u.isInt(küsimus)) {
                 break;
             }
             küsimuselist.add(küsimus);
@@ -29,12 +30,12 @@ public class Lisa {
             while(true) { //vastuste lisamise loop
                 System.out.println("Sisesta vastus/lõpetamiseks sisesta suvaline number: ");
                 String vastus = sc.next();
-                if (vastus.length() == 1 && vastus.charAt(0).isDigit()) {
+                if (vastus.length() == 1 && u.isInt(vastus)) {
                     break;
                 }
                 küsimuselist.add(";" + vastus);
             }
-            StringBuilder koguküsimus;
+            StringBuilder koguküsimus = new StringBuilder();
             for (String s : küsimuselist) {
                 koguküsimus.append(s);
             }
