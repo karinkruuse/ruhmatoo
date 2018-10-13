@@ -41,7 +41,7 @@ class Test {
         // lugesin https://docs.oracle.com/javase/tutorial/essential/concurrency/sleep.html
         // usun, et antud juhul on Thread.sleep turvaline kasutada
         // Stack overflows oli keegi öelnud et see ei ole
-        try { Thread.sleep(750); }
+        try { Thread.sleep(500); }
         catch (InterruptedException e) { }
 
 

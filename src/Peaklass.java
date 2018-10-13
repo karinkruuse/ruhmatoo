@@ -46,6 +46,8 @@ public class Peaklass {
 
        test.genereeriTulemus();
        System.out.println("Test tehtud!");
+       try { Thread.sleep(1000); }
+       catch (InterruptedException e) { }
 
 
 

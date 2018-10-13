@@ -41,7 +41,7 @@ public class VirtualFile {
         while (s.hasNextLine()) {
             rida = s.nextLine().trim();
             if (rida.isEmpty()) { break; }
-            küsimused.add(i, rida.split(":"));
+            küsimused.add(i, rida.split(";"));
             i++;
         }
 
@@ -54,7 +54,6 @@ public class VirtualFile {
         }
 
         tulemusteArv = i - pikkus;
-        System.out.println(tulemusteArv);
 
 
     }

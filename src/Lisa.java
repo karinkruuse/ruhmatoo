@@ -14,7 +14,7 @@ public class Lisa {
         String nimi = sc.next();
 
         Writer output1 = new BufferedWriter(new FileWriter("nimed.txt"));
-        output1.newLine(nimi); //lisab testi nime faili
+        output1.write(nimi); //lisab testi nime faili
         output1.close();
 
         while(true) { // küsimuste lisamise loop
@@ -39,12 +39,11 @@ public class Lisa {
                 koguküsimus.append(s);
             }
 
-            Writer output2 = new BufferedWriter(new FileWriter(test.txt, true));
-            output2.newLine(koguküsimus.toString());
+            Writer output2 = new BufferedWriter(new FileWriter("test.txt"));
+            output2.write(koguküsimus.toString());
             output2.close();
 
         }
     }
-    sc.close();
 }
 
