@@ -12,7 +12,7 @@ public class Lisa {
     private Scanner s;
     private File nimed, test;
 
-    public static void lisaTest() {
+    public static void lisaTest() throws Exception {
         System.out.println("Sisesta test nimi: ");
         String nimi = sc.nextLine();
 
