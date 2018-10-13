@@ -38,6 +38,13 @@ class Test {
         String[] küsimus = testiFail.getKüsimus(küsimuseNr);
         System.out.println(küsimus[0]);
 
+        // lugesin https://docs.oracle.com/javase/tutorial/essential/concurrency/sleep.html
+        // usun, et antud juhul on Thread.sleep turvaline kasutada
+        // Stack overflows oli keegi öelnud et see ei ole
+        try { Thread.sleep(750); }
+        catch (InterruptedException e) { }
+
+
         for (int i = 1; i < küsimus.length; i++) {
             System.out.println("[" + i + "] " + küsimus[i]);
         }
@@ -54,18 +61,15 @@ class Test {
 
     }
 
+
     public void genereeriTulemus() {
-
+        System.out.println(testiFail.suvalineTulemus());
     }
-
-
-
 
 
     public int getPikkus() {
         return pikkus;
     }
-
 
 
 

@@ -1,2 +1,5 @@
 Esimiene küsimus?:jah:ei
 Teine küssa:jap:noup
+
+tulemus1
+tulemus2

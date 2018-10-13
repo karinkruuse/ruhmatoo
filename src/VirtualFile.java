@@ -2,7 +2,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
-import java.util.Arrays;
+import java.lang.Math;
 
 public class VirtualFile {
 
@@ -26,22 +26,37 @@ public class VirtualFile {
 
 
     private List<String[]> küsimused = new ArrayList<>();
+    private List<String> tulemused = new ArrayList<>();
     private int pikkus;
+    private int tulemusteArv;
 
 
     public VirtualFile(String textFail) throws Exception {
         File fail = new File(textFail);
         Scanner s = new Scanner(fail);
+
+        // küsimused
         String rida = "";
         int i = 0;
-
         while (s.hasNextLine()) {
             rida = s.nextLine().trim();
+            if (rida.isEmpty()) { break; }
             küsimused.add(i, rida.split(":"));
             i++;
         }
 
         pikkus = i;
+
+        while (s.hasNextLine()) {
+            rida = s.nextLine().trim();
+            tulemused.add(rida);
+            i++;
+        }
+
+        tulemusteArv = i - pikkus;
+        System.out.println(tulemusteArv);
+
+
     }
 
 
@@ -52,5 +67,10 @@ public class VirtualFile {
 
     public int getPikkus() {
         return pikkus;
+    }
+
+    public String suvalineTulemus() {
+        int r = (int)Math.floor((Math.random() * tulemusteArv));
+        return tulemused.get(r);
     }
 }
