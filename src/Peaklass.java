@@ -5,6 +5,7 @@ import java.util.List;
 public class Peaklass {
 
     public static Scanner s = new Scanner(System.in);
+    public static Utilities u = new Utilities();
 
     
     public static void main(String args[]) throws Exception {
@@ -46,9 +47,7 @@ public class Peaklass {
 
        test.genereeriTulemus();
        System.out.println("Test tehtud!");
-       try { Thread.sleep(1000); }
-       catch (InterruptedException e) { }
-
+       u.delay(1000);
 
 
 
