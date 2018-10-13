@@ -45,7 +45,7 @@ public class Peaklass {
            test.küsi(i+1);
        }
 
-       test.genereeriTulemus();
+       test.genereeriSuvalineTulemus();
        System.out.println("Test tehtud!");
        u.delay(1000);
 

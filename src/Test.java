@@ -42,7 +42,7 @@ class Test {
     }
 
 
-    public void genereeriTulemus() {
+    public void genereeriSuvalineTulemus() {
         System.out.println(testiFail.suvalineTulemus());
     }
 
