@@ -8,7 +8,6 @@ class Test {
     public static Scanner s = new Scanner(System.in);
     public static Utilities u = new Utilities();
 
-
     private int pikkus;
     List<Integer> vastused = new ArrayList<>();
     VirtualFile testiFail;
@@ -44,6 +43,11 @@ class Test {
 
     public void genereeriSuvalineTulemus() {
         System.out.println(testiFail.suvalineTulemus());
+    }
+
+
+    public void genereeriTulemus() {
+
     }
 
 
