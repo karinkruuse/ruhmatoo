@@ -22,6 +22,7 @@ class Test {
 
 
     public void küsi(int küsimuseNr) {
+
         // Küsimuse ja vastusevariantide väljastamine
         String[] küsimus = testiFail.getKüsimus(küsimuseNr);
         System.out.println(küsimus[0]);
@@ -50,7 +51,7 @@ class Test {
             }
         }
 
-        int punkte = Arrays.asList(küsimus).indexOf(segatud[vastus-1]);
+        int punkte = Arrays.asList(küsimus).indexOf(segatud[vastus-1]) + 1;
 
         vastused.add(küsimuseNr-1, punkte);
 
@@ -62,7 +63,22 @@ class Test {
     }
 
 
-    public void genereeriTulemus() {
+    public String genereeriTulemus() {
+
+        int summa = 0;
+        for (int e : vastused) {
+            summa += e;
+        }
+
+        System.out.println(summa);
+
+        for (int i = 0; i < testiFail.getTulemusteArv(); i++) {
+            if (summa >= testiFail.getVahemikAlampiir(i) && summa <= testiFail.getVahemikÜlempiir(i)) {
+                return testiFail.getTulemus(i);
+            }
+        }
+
+        return "";
 
     }
 

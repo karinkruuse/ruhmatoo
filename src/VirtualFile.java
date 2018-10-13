@@ -27,6 +27,8 @@ public class VirtualFile {
 
     private List<String[]> küsimused = new ArrayList<>();
     private List<String> tulemused = new ArrayList<>();
+    private List<Integer> vahemikÜlempiir = new ArrayList<>();
+    private List<Integer> vahemikAlampiir = new ArrayList<>();
     private int pikkus;
     private int tulemusteArv;
 
@@ -46,11 +48,12 @@ public class VirtualFile {
         }
 
         pikkus = i;
-        
+
         while (s.hasNextLine()) {
             rida = s.nextLine().trim();
-
-            tulemused.add(rida);
+            vahemikAlampiir.add(Integer.parseInt(rida.split(";")[1]));
+            vahemikÜlempiir.add(Integer.parseInt(rida.split(";")[2]));
+            tulemused.add(rida.split(";")[0]);
             i++;
         }
 
@@ -65,13 +68,31 @@ public class VirtualFile {
     }
 
 
+    public String suvalineTulemus() {
+        int r = (int)Math.floor((Math.random() * tulemusteArv));
+        return tulemused.get(r);
+    }
+
+    public String getTulemus(int index) {
+        return tulemused.get(index);
+    }
+
     public int getPikkus() {
         return pikkus;
     }
 
 
-    public String suvalineTulemus() {
-        int r = (int)Math.floor((Math.random() * tulemusteArv));
-        return tulemused.get(r);
+    public int getTulemusteArv() {
+        return tulemusteArv;
+    }
+
+
+    public int getVahemikÜlempiir(int index) {
+        return vahemikÜlempiir.get(index);
+    }
+
+
+    public int getVahemikAlampiir(int index) {
+        return vahemikAlampiir.get(index);
     }
 }

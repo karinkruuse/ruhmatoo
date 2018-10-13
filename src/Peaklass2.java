@@ -44,7 +44,7 @@ public class Peaklass2 {
             test.küsi(i+1);
         }
 
-        test.genereeriSuvalineTulemus();
+        System.out.println(test.genereeriTulemus());
         u.delay(1000);
 
 
