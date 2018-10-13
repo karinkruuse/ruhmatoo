@@ -1,6 +1,7 @@
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Arrays;
 
 
 class Test {
@@ -24,25 +25,40 @@ class Test {
         // Küsimuse ja vastusevariantide väljastamine
         String[] küsimus = testiFail.getKüsimus(küsimuseNr);
         System.out.println(küsimus[0]);
+
         u.delay(500);
 
-        for (int i = 1; i < küsimus.length; i++) {
-            System.out.println("[" + i + "] " + küsimus[i]);
+        List<String> list = new ArrayList<String>(Arrays.asList(küsimus));
+        list.remove(küsimus[0]);
+        küsimus = list.toArray(new String[0]);
+        String[] segatud = u.shuffle(küsimus);
+
+
+        for (int i = 0; i < küsimus.length; i++) {
+            System.out.println("[" + (i+1) + "] " + segatud[i]);
         }
 
         // user input
-        String vastus = "";
-        do {
-            vastus = s.nextLine();
-        } while (!u.isInt(vastus));
-        int vastusInt = Integer.parseInt(vastus);
-        vastused.add(küsimuseNr-1, vastusInt);
+        int vastus = 0;
+        while (true) {
+            try {
+                vastus = Integer.parseInt(s.nextLine());
+                break;
+            }
+            catch (NumberFormatException e) {
+                System.out.println("Palun sisestage vastusevariandi number!");
+            }
+        }
+
+        int punkte = Arrays.asList(küsimus).indexOf(segatud[vastus-1]);
+
+        vastused.add(küsimuseNr-1, punkte);
 
     }
 
 
     public void genereeriSuvalineTulemus() {
-        System.out.println(testiFail.suvalineTulemus());
+        System.out.println("Tulemus: " + testiFail.suvalineTulemus() + "\n");
     }
 
 
@@ -54,7 +70,5 @@ class Test {
     public int getPikkus() {
         return pikkus;
     }
-
-
 
 }

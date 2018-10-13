@@ -46,9 +46,10 @@ public class VirtualFile {
         }
 
         pikkus = i;
-
+        
         while (s.hasNextLine()) {
             rida = s.nextLine().trim();
+
             tulemused.add(rida);
             i++;
         }
@@ -67,6 +68,7 @@ public class VirtualFile {
     public int getPikkus() {
         return pikkus;
     }
+
 
     public String suvalineTulemus() {
         int r = (int)Math.floor((Math.random() * tulemusteArv));
