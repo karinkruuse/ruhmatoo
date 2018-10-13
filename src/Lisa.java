@@ -7,43 +7,44 @@ import java.io.Writer;
 import java.util.ArrayList;
 
 public class Lisa {
-    public static Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
 
-    private Scanner s;
-    private File nimed, test;
-
-    public static void lisaTest() {
+    public static void lisaTest() throws Exception {
         System.out.println("Sisesta test nimi: ");
-        String nimi = sc.nextString();
+        String nimi = sc.next();
 
-        output = new BufferedWriter(new FileWriter("nimed.txt", true));
-        output.append(nimi);
-        output.close;
+        Writer output1 = new BufferedWriter(new FileWriter("nimed.txt"));
+        output1.newLine(nimi); //lisab testi nime faili
+        output1.close();
 
-
-        //lisab testi nime faili
-
-        while(True) { // küsimuste lisamise loop
+        while(true) { // küsimuste lisamise loop
             ArrayList<String> küsimuselist = new ArrayList<String>;
             System.out.println("Sisesta küsimus/lõpetamiseks sisesta suvaline number: ");
-            String küsimus = sc.nextString();
+            String küsimus = sc.next();
             if (küsimus.length() == 1 && küsimus.charAt(0).isDigit()) {
                 break;
             }
             küsimuselist.add(küsimus);
 
-            while(True) { //vastuste lisamise loop
+            while(true) { //vastuste lisamise loop
                 System.out.println("Sisesta vastus/lõpetamiseks sisesta suvaline number: ");
-                String vastus = sc.nextString();
+                String vastus = sc.next();
                 if (vastus.length() == 1 && vastus.charAt(0).isDigit()) {
                     break;
                 }
-                küsimuselist.add(":" + vastus);
+                küsimuselist.add(";" + vastus);
+            }
+            StringBuilder koguküsimus;
+            for (String s : küsimuselist) {
+                koguküsimus.append(s);
             }
 
-            //lisab kusimuse faili
+            Writer output2 = new BufferedWriter(new FileWriter(test.txt, true));
+            output2.newLine(koguküsimus.toString());
+            output2.close();
 
         }
     }
+    sc.close();
 }
 
