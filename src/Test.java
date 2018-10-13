@@ -14,5 +14,9 @@ class Test{
 
     }
 
+    public void esitaKüsimus(int küsimuseNr) {
+
+    }
+
 
 }

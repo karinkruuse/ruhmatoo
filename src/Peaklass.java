@@ -40,7 +40,7 @@ public class Peaklass {
 
         //
 
-        // for (int i = 0; i < test.pikkus
+        // for (int i = 0; i < test.pikkus)
 
 
 
