@@ -25,12 +25,7 @@ class Test {
         // Küsimuse ja vastusevariantide väljastamine
         String[] küsimus = testiFail.getKüsimus(küsimuseNr);
         System.out.println(küsimus[0]);
-
-        // lugesin https://docs.oracle.com/javase/tutorial/essential/concurrency/sleep.html
-        // usun, et antud juhul on Thread.sleep turvaline kasutada
-        // Stack overflows oli keegi öelnud et see ei ole
         u.delay(500);
-
 
         for (int i = 1; i < küsimus.length; i++) {
             System.out.println("[" + i + "] " + küsimus[i]);
@@ -43,8 +38,6 @@ class Test {
         } while (!u.isInt(vastus));
         int vastusInt = Integer.parseInt(vastus);
         vastused.add(küsimuseNr-1, vastusInt);
-
-
 
     }
 
