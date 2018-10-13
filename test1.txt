@@ -1,0 +1,2 @@
+Esimiene küsimus?:jah:ei
+Teine küssa:jap:noup

@@ -25,8 +25,8 @@ public class VirtualFile {
     }
 
 
-    private int mitmesKüsimus;
-    private List<List<String>> küsimused;
+    private List<String[]> küsimused = new ArrayList<>();
+    private int pikkus;
 
 
     public VirtualFile(String textFail) throws Exception {
@@ -36,21 +36,21 @@ public class VirtualFile {
         int i = 0;
 
         while (s.hasNextLine()) {
-            rida = s.next();
-            küsimused.set(i, Arrays.asList(rida.split(":")));
+            rida = s.nextLine().trim();
+            küsimused.add(i, rida.split(":"));
             i++;
         }
 
-        mitmesKüsimus = 0;
+        pikkus = i;
     }
 
 
-    public List<String> getKüsimus(int küsimuseNr) {
+    public String[] getKüsimus(int küsimuseNr) {
         return küsimused.get(küsimuseNr-1);
     }
 
 
-    public int getMitmesKüsimus(){
-        return mitmesKüsimus;
+    public int getPikkus() {
+        return pikkus;
     }
 }
