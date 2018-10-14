@@ -31,11 +31,11 @@ class Test {
 
         List<String> list = new ArrayList<String>(Arrays.asList(küsimus));
         list.remove(küsimus[0]);
-        küsimus = list.toArray(new String[0]);
-        String[] segatud = u.shuffle(küsimus);
+        String[] segatud = list.toArray(new String[0]);
+        segatud = u.shuffle(segatud);
 
 
-        for (int i = 0; i < küsimus.length; i++) {
+        for (int i = 0; i < segatud.length; i++) {
             System.out.println("[" + (i+1) + "] " + segatud[i]);
         }
 
@@ -51,7 +51,8 @@ class Test {
             }
         }
 
-        int punkte = Arrays.asList(küsimus).indexOf(segatud[vastus-1]) + 1;
+        int punkte = Arrays.asList(küsimus).indexOf(segatud[vastus-1]);
+        System.out.println(punkte);
 
         vastused.add(küsimuseNr-1, punkte);
 
@@ -74,6 +75,7 @@ class Test {
 
         for (int i = 0; i < testiFail.getTulemusteArv(); i++) {
             if (summa >= testiFail.getVahemikAlampiir(i) && summa <= testiFail.getVahemikÜlempiir(i)) {
+                System.out.println(testiFail.getVahemikAlampiir(i));
                 return testiFail.getTulemus(i);
             }
         }

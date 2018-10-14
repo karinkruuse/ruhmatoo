@@ -1,5 +1,5 @@
 Kui näete tänaval musta meest, kas jooksete?;Jah, tema poole;ei;japp
 Kui teie sõber ütleb: "Ou Juss, lähme peksame neegreid!", mida vastate?;not today satan;DAVAI;ei, mul on niigi tingimisi eelmisest korrast
 
-Väga rassist olete;2;3
-pigem pole normaalne;4;6
+vähe punkte(pole rasi);2;3
+palju punkte (pigem rasi);4;6
