@@ -16,9 +16,10 @@ public class Peaklass {
         // Siin algab nn game-loop
         while (true) {
             System.out.println("Millist testi soovite teha?");
+            System.out.println("[0] Välju");
             for (String[] elem : testid) {  // Prindib testid välja
                 System.out.print("[" + (testid.indexOf(elem) + 1) + "] ");
-                System.out.println(elem[0]);
+                System.out.println(elem[0] + "?");
             }
 
             int test = s.nextInt();
@@ -26,28 +27,35 @@ public class Peaklass {
                 break;
             }
             String nimi = testid.get(test - 1)[0];
-            testManager(test, nimi);
+            testManager(nimi);
+
+            u.delay(1000);
+            System.out.println("Kas soovite veel testi teha?\n[1] Jah\n[2] Ei");
+            int vastus = s.nextInt();
+            if (vastus  == 2) {
+                break;
+            }
+
 
         }
 
     }
 
 
-    public static void testManager(int testiNr, String testiNimi) throws Exception {
+    public static void testManager(String testiNimi) throws Exception {
 
-       System.out.println("Valisite tesit: " + testiNimi);
+        System.out.println("Valisite testi: " + testiNimi + "?");
 
-       String failiNimi = "test" + testiNr + ".txt";
-       Test test = new Test(failiNimi);
+        String failiNimi = testiNimi + ".txt";
+        Test test = new Test(failiNimi);
 
-       int pikkus = test.getPikkus();
-       for (int i = 0; i < pikkus; i++) {
-           test.küsi(i+1);
-       }
+        int pikkus = test.getPikkus();
+        for (int i = 0; i < pikkus; i++) {
+            test.küsi(i+1);
+        }
 
-       test.genereeriSuvalineTulemus();
-       System.out.println("Test tehtud!");
-       u.delay(1000);
+        System.out.println(test.genereeriTulemus());
+        u.delay(1000);
 
 
 

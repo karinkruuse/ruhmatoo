@@ -52,7 +52,6 @@ class Test {
         }
 
         int punkte = Arrays.asList(küsimus).indexOf(segatud[vastus-1]);
-        System.out.println(punkte);
 
         vastused.add(küsimuseNr-1, punkte);
 
@@ -71,7 +70,6 @@ class Test {
             summa += e;
         }
 
-        System.out.println(summa);
 
         for (int i = 0; i < testiFail.getTulemusteArv(); i++) {
             if (summa >= testiFail.getVahemikAlampiir(i) && summa <= testiFail.getVahemikÜlempiir(i)) {
