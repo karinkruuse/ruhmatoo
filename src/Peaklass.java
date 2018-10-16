@@ -13,9 +13,19 @@ public class Peaklass {
 
         List<String[]> testid = VirtualFile.testiNimed();  // [testi nimi, testi fail], [testi nimi2, testi fail2] ...
 
+        System.out.println("\nKas soovite testi teha [1] või testi lisada [2]?");
+
+        int t = s.nextInt();
+        boolean tahab = false;
+        if (t == 1) {tahab = true;}
+        else if (t == 2) {
+            Lisa.lisaTest();
+        }
+
+
         // Siin algab nn game-loop
-        while (true) {
-            System.out.println("Millist testi soovite teha?");
+        while (tahab) {
+            System.out.println("\nMillist testi soovite teha?");
             System.out.println("[0] Välju");
             for (String[] elem : testid) {  // Prindib testid välja
                 System.out.print("[" + (testid.indexOf(elem) + 1) + "] ");
@@ -30,7 +40,7 @@ public class Peaklass {
             testManager(nimi);
 
             u.delay(1000);
-            System.out.println("Kas soovite veel testi teha?\n[1] Jah\n[2] Ei");
+            System.out.println("\n\nKas soovite veel testi teha?\n[1] Jah\n[2] Ei");
             int vastus = s.nextInt();
             if (vastus  == 2) {
                 break;

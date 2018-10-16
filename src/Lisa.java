@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.Writer;
 
 public class Lisa {
+
     static Scanner sc = new Scanner(System.in);
     static Utilities u = new Utilities();
     
@@ -36,7 +37,7 @@ public class Lisa {
             }
             küsimuselist.add(küsimus);
 
-            int i = 0;
+            int i = 1;
             while(true) { //vastuste lisamise loop
                 System.out.println("Sisesta " + i +" punkti andev vastus/lõpetamiseks sisesta suvaline number: ");
                 String vastus = sc.nextLine();
@@ -46,7 +47,7 @@ public class Lisa {
                 küsimuselist.add(";" + vastus);
                 i++;
             }
-            punktidearv = punktidearv + i;
+            punktidearv = punktidearv + i - 1;
             StringBuilder koguküsimus = new StringBuilder();
             for (String s : küsimuselist) {
                 koguküsimus.append(s);
