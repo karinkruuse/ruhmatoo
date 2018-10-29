@@ -37,7 +37,7 @@ public class Peaklass {
                 break;
             }
             String nimi = testid.get(test - 1)[0];
-            testManager(nimi);
+            testManager(nimi.replace("?", ""));
 
             u.delay(1000);
             System.out.println("\n\nKas soovite veel testi teha?\n[1] Jah\n[2] Ei");
