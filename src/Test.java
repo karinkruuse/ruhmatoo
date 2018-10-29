@@ -6,12 +6,12 @@ import java.util.Arrays;
 
 class Test {
 
-    public static Scanner s = new Scanner(System.in);
-    public static Utilities u = new Utilities();
+    private static Scanner s = new Scanner(System.in);
+    private static Utilities u = new Utilities();
 
     private int pikkus;
-    List<Integer> vastused = new ArrayList<>();
-    VirtualFile testiFail;
+    private List<Integer> vastused = new ArrayList<>();
+    private VirtualFile testiFail;
 
 
     public Test(String failiNimi) throws Exception {
@@ -29,7 +29,7 @@ class Test {
 
         u.delay(500);
 
-        List<String> list = new ArrayList<String>(Arrays.asList(küsimus));  // küsimuste list
+        List<String> list = new ArrayList<>(Arrays.asList(küsimus));  // küsimuste list
         list.remove(küsimus[0]);  // esimene on küsimus
         String[] segatud = list.toArray(new String[0]);  // see on segamiseks list
         segatud = u.shuffle(segatud);  // siin toimbu päriselt segamine
@@ -75,7 +75,7 @@ class Test {
 
         for (int i = 0; i < testiFail.getTulemusteArv(); i++) {
             if (summa >= testiFail.getVahemikAlampiir(i) && summa <= testiFail.getVahemikÜlempiir(i)) {
-                return testiFail.getTulemus(i);
+                return "Tulemus: " + testiFail.getTulemus(i);
             }
         }
 

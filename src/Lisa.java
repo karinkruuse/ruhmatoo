@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.Writer;
 
+//testide loomine
 public class Lisa {
 
     static Scanner sc = new Scanner(System.in);
@@ -12,7 +13,8 @@ public class Lisa {
 
 
     public static void lisaTest() throws Exception {
-        int punktidearv = 0;
+        int punktidearv = 0; // arvutab max punktide arvu, mis on võimalik testist saada (punktidearv ongi max punktide arv)
+        int küsimustearv = 0; //vajalik tulemuse minimaalse punktisumma arvutamiseks
 
         System.out.println("Sisesta test nimi: ");
         String nimi = sc.nextLine();
@@ -28,17 +30,20 @@ public class Lisa {
 
 
         BufferedWriter output2 = new BufferedWriter(new FileWriter(failinimi, true));
-        while(true) { // küsimuste lisamise loop
-            ArrayList<String> küsimuselist = new ArrayList<>();
+        //küsimuste lisamise loop
+        while(true) {
+            ArrayList<String> küsimuselist = new ArrayList<>(); //küsimuselist on txt failis see rida, kus küsimus ja vastused kirjas
             System.out.println("Sisesta küsimus/lõpetamiseks sisesta suvaline number: ");
             String küsimus = sc.nextLine();
             if (küsimus.length() == 1 && u.isInt(küsimus)) {
                 break;
             }
+            küsimustearv++;
             küsimuselist.add(küsimus);
 
             int i = 1;
-            while(true) { //vastuste lisamise loop
+            //vastuste lisamise loop
+            while(true) {
                 System.out.println("Sisesta " + i +" punkti andev vastus/lõpetamiseks sisesta suvaline number: ");
                 String vastus = sc.nextLine();
                 if (vastus.length() == 1 && u.isInt(vastus)) {
@@ -60,7 +65,7 @@ public class Lisa {
         output2.close();
 
         //tulemuste lisamine
-        int aluminepiir = 0;
+        int aluminepiir = küsimustearv; //alumine piir antud tulemusele
 
         while(true) {
             System.out.println("Sisesta tulemuse punktisumma ülemine piir n (max n = " + punktidearv + ")");
@@ -69,6 +74,7 @@ public class Lisa {
             System.out.println("Sisesta tulemus punktisummale " + aluminepiir + " - " + üleminepiir );
             String tulemus = sc.nextLine();
 
+            //kirjutab faili tulemuse koos punktisumma vahemikuga
             BufferedWriter output3 = new BufferedWriter(new FileWriter(failinimi, true));
             output3.write(tulemus +";"+ aluminepiir + ";" + üleminepiir);
             output3.newLine();

@@ -32,6 +32,7 @@ public class Peaklass {
                 System.out.println(elem[0] + "?");
             }
 
+            // valitud test
             int test = s.nextInt();
             if (test == 0) {
                 break;

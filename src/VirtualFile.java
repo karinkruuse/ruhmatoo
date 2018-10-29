@@ -4,9 +4,11 @@ import java.util.Scanner;
 import java.util.List;
 import java.lang.Math;
 
+
+// pm testi tekst on saadav läbi selle klassi
 public class VirtualFile {
 
-
+    // see on alguses nimede printimiseks 'nimed.txt' failist
     public static List<String[]> testiNimed() throws Exception {
 
         File fail = new File("nimed.txt");
@@ -72,6 +74,7 @@ public class VirtualFile {
         int r = (int)Math.floor((Math.random() * tulemusteArv));
         return tulemused.get(r);
     }
+
 
     public String getTulemus(int index) {
         return tulemused.get(index);
