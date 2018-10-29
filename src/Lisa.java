@@ -61,12 +61,14 @@ public class Lisa {
 
         //tulemuste lisamine
         int aluminepiir = 0;
+        int üleminepiir = 0;
 
         while(true) {
-            System.out.println("Sisesta tulemuse punktisumma ülemine piir n (max n = " + punktidearv + ")");
-            int üleminepiir = Integer.parseInt(sc.nextLine());
+            System.out.println("Sisesta tulemuse punktisumma ülemine piir n (tulemus punktisummale "
+                    + aluminepiir + " - " + üleminepiir +"); max n = " + punktidearv);
+            üleminepiir = sc.nextInt();
 
-            System.out.println("Sisesta tulemus punktisummale " + aluminepiir + " - " + üleminepiir );
+            System.out.println("Sisesta tulemus:" );
             String tulemus = sc.nextLine();
 
             BufferedWriter output3 = new BufferedWriter(new FileWriter(failinimi, true));
