@@ -29,7 +29,7 @@ public class Peaklass {
             System.out.println("[0] Välju");
             for (String[] elem : testid) {  // Prindib testid välja
                 System.out.print("[" + (testid.indexOf(elem) + 1) + "] ");
-                System.out.println(elem[0] + "?");
+                System.out.println(elem[0]);
             }
 
             // valitud test

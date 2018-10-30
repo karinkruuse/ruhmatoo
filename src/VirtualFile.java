@@ -35,6 +35,7 @@ public class VirtualFile {
     private int tulemusteArv;
 
 
+    // Kogu fail loetaks erinevatesse listidesse (need listid ongi justkui virtuaalne fail siin koodi sees)
     public VirtualFile(String textFail) throws Exception {
         File fail = new File(textFail);
         Scanner s = new Scanner(fail);

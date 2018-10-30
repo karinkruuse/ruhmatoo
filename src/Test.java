@@ -59,6 +59,7 @@ class Test {
     }
 
 
+    // See oli esialgu selleks, et Random oleks kasutatud
     public void genereeriSuvalineTulemus() {
         System.out.println("Tulemus: " + testiFail.suvalineTulemus() + "\n");
     }
